@@ -18,7 +18,6 @@ BEST_ADAPTER   = "TheAsianFish/qwen3-math-lora"
 SUB_JSONL      = "results/private_final.jsonl"
 OUTPUT_CSV     = "submission.csv"
 
-# ---- Prompts (verbatim from notebook Phase 3 / Cell I) ----
 SYSTEM_PROMPT_MATH = (
     "You are an expert mathematician. "
     "Solve the problem step-by-step, but be concise, no repetition, no over-explanation. "
@@ -87,7 +86,6 @@ def run_inference():
 
     print("GPU:", torch.cuda.get_device_name(0))
 
-    # ---- Load model with LoRA enabled (notebook Phase 3 / Cell I) ----
     llm = LLM(model=MODEL_ID, enable_lora=True, max_lora_rank=MAX_LORA_RANK,
               dtype="bfloat16", gpu_memory_utilization=0.90, max_model_len=8192,
               enable_prefix_caching=True, trust_remote_code=True, disable_log_stats=True)
@@ -126,7 +124,6 @@ def run_inference():
             print(f"  {min(s+CHUNK, len(todo))}/{len(todo)}")
     print("Private inference complete.")
 
-    # ---- Write submission.csv (notebook Phase 3 / Cell L) ----
     order = {d["id"]: k for k, d in enumerate(priv)}
     rows = [json.loads(l) for l in open(SUB_JSONL)]
     rows.sort(key=lambda r: order.get(r["id"], 10**9))
