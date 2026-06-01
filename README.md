@@ -10,3 +10,5 @@ You do not need to download or place any model weights manually. The codebase is
 Make sure you have the required dependencies installed:
 
 `pip install vllm transformers torch pandas` or (`pip install -r requirements.txt`)
+
+`run_inference()` should run automatically if you run `python run_inference.py`
