@@ -2,6 +2,7 @@
 
 ## Hardware & Runtime
 - **GPU Type Used:** NVIDIA RTX 6000 Blackwell or A30 (depending on Datahub availability)
+- **Runtime:** ~3 days to run full inference on private set
 
 ## Model Weights & Setup
 You do not need to download or place any model weights manually. The codebase is configured to pull both the base model and our fine-tuned weights automatically from the Hugging Face Hub during initialization.
