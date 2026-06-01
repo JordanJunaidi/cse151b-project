@@ -1,15 +1,13 @@
-# CSE 151B Competition — Starter Code
+# CSE 151B Competition -- Banana Bread
 
-Open **`starter_code_cse151b_comp.ipynb`** to get started.
+## Hardware & Runtime
+- **GPU Type Used:** NVIDIA A100 (40GB) / RTX 4090 (or equivalent with $\ge$ 16GB VRAM for INT8/BF16 loading)
+- **Approximate Total Inference Time:** ~20-30 minutes for the full 943-question private test set (utilizing vLLM's chunked generation with `N_VOTE=3` majority voting).
 
-The notebook covers environment setup, inference with Qwen3-4B-Thinking (INT8), and scoring against the public dataset.
+## Model Weights & Setup
+You do not need to download or place any model weights manually. The codebase is configured to pull both the base model and our fine-tuned weights automatically from the Hugging Face Hub during initialization.
 
-## Contents
+### Prerequisites
+Make sure you have the required dependencies installed:
 
-| File | Description |
-|---|---|
-| `starter_code_cse151b_comp.ipynb` | Main entry point |
-| `judger.py` | Response scoring logic |
-| `utils.py` | Utilities used by `judger.py` |
-| `data/public.jsonl` | Public dataset with ground-truth answers |
-| `results/` | Output JSONL files written at runtime |
+`pip install vllm transformers torch pandas` or (`pip install -r requirements.txt`)
